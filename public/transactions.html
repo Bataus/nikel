@@ -29,7 +29,7 @@
                     <i class="bi bi-person-circle fs-4"></i>
                   </button>
                   <ul class="dropdown-menu logout" aria-labelledby="dropdownMenuButton1">
-                     <li><button class="dropdown-item" id="buttom-logout">Sair</button></li>
+                    <li><button class="dropdown-item" id="buttom-logout">Sair</button></li>
                   </ul>
               </div>
             </div>
@@ -63,13 +63,8 @@
                       <th scope="col">Descrição</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">05/07/2023</th>
-                      <td>R$ 99,50</td>
-                      <td>Entrada</td>
-                      <td>Venda balcão: livro "O Príncipe"</td>
-                    </tr>
+                  <tbody id="transactions-list">
+                   
                   </tbody>
                 </table>
               </div>            
@@ -103,7 +98,7 @@
                         </div>
                         <div class="mb-3">
                                <label for="value-input" class="form-label"> Valor</label>
-                               <input type="number" class="form-control" id="value-input" aria-describedby="emailHelp" required>
+                               <input type="number" step="any" class="form-control" id="value-input" aria-describedby="emailHelp" required>
                          </div>
                            <div class="mb-3">
                                 <label for="description-input" class="form-label">Descrição</label>
@@ -136,5 +131,6 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
         crossorigin="anonymous">
       </script>
+   <script src="./js/transactions.js"></script>   
   </body>
 </html>
