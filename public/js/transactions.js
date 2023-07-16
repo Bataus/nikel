@@ -6,7 +6,7 @@ let data = {
     transactions: []
 };
 
-document.getElementById("button-logout").addEventListener("cllick", logout)
+document.getElementById("button-logout").addEventListener("click", logout)
 
 function logout() {
     sessionStorage.removeItem("logged");
