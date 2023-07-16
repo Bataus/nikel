@@ -1,93 +1,93 @@
-const myModal = new bootstrap.Modal("#registermodal");
-let logged = sessionStorage.getItem("logged");
-const session = localStorage.getItem("session")
+const myModal = new bootstrap.Modal("#register-modal");
+let logged = sessionStorage.getItem('logged');
+const session = localStorage.getItem('session');
 
-checkLogged();
+checkLogged()
 
-//LOGAR NO SISTEMA
-document.getElementById("login-form").addEventListener("submit", function(e) {
+document.getElementById('login-form').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const email = document.getElementById("email-create-input").value;
-    const password = document.getElementById("password-input").value;
-    const checkSession = document.getElementById("session-check").checked;
+    const email = document.querySelector('#input-email').value;
+    const password = document.querySelector('#input-password').value;
+    const checkSession = document.querySelector('#session-check').checked;
 
     const account = getAccount(email);
-    
-    if(!account) {
-        alert("Opps! Verifique o usuário ou a senha!!!");
+
+    if (!account) {
+        alert('Ops! Verifique seu usuário ou a senha.');
         return;
     }
 
-    if(account.password !== password) {
-        alert("Opps! Verifique o usuário ou a senha!!!");
-        return;
+    if (account) {
+        if (account.password != password) {
+            alert('Ops! Verifique seu usuário ou a senha.');
+            return;
+        }
 
-        saveSession(email, checkSession);
+        saveSession(email,checkSession);
 
-        window.location.href = "home.html";
+        window.location.href = 'home.html';
     }
-});
+})
 
-//CRIAR CONTA
-document.getElementById("create-form").addEventListener("submit", function(e) {
-    e.preventDefault ();
+document.getElementById('create-form').addEventListener('submit', function (e) {
+    e.preventDefault();
 
-    const email = document.getElementById("e-mail-create-input").value;
-    const password = document.getElementById("password-create-input").value;
+    const email = document.querySelector('#create-email-input').value;
+    const password = document.querySelector('#create-password-input').value;
 
-    if(email.lenght < 5) {
-        alert("Preencha o campo com um e-mail válido.");
-        return;
-    }
-
-    if(password.lenght < 4) {
-        alert("Preencha a senha com no mínimo 4 dígitos.");
+    if (email.length < 5) {
+        alert('Preencha o campo com um email válido.');
         return;
     }
 
-    saveAccount ({
-        login: email,
+    if (password.length < 4) {
+        alert('Crie um senha com no mínimo 4 dígitos!');
+        return;
+    }
+
+    saveAccount({
+        email: email,
         password: password,
         transactions: []
-    });
+    })
 
+    alert('Sua conta foi criada com sucesso.');
     myModal.hide();
 
-    alert("Conta criada com sucesso!");
 });
 
 function checkLogged() {
     if (session) {
-        sessionStorage.setItem("logged", session);
+        sessionStorage.setItem('logged', session);
         logged = session;
     }
 
-    if(logged){
+    if (logged)  {
         saveSession(logged, session);
 
-        window.location.href = "home.html";
+        window.location.href = 'home.html';
     }
 }
 
-function saveAccount(data) {
-    localStorage.setItem(data.login, JSON.stringify(data));
+function saveAccount(user) {
+    localStorage.setItem(user.email, JSON.stringify(user));
 }
 
 function saveSession(data, saveSession) {
-    if(saveSession) {
-        localStorage.setItem("session", data);
-        }
+    if (saveSession) {
+        localStorage.setItem('session', data);
+    }
+
+    sessionStorage.setItem('logged', data);
 }
 
 function getAccount(key) {
     const account = localStorage.getItem(key);
 
-    if(account) {
+    if (account) {
         return JSON.parse(account);
     }
 
-    return "";
+    return '';
 }
-
-
