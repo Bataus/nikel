@@ -35,7 +35,7 @@ header {
     font-weight: 500;
 }
 
-.buttom-login {
+.button-login {
     border-radius: 10px;
     background-color: #4e0070;
     color: #ffffff;
@@ -43,7 +43,7 @@ header {
     margin: 0 25%;
 }
 
-.buttom-login:hover {
+.button-login:hover {
     background: #4c79d3;
     color: #ffffff;
 }
