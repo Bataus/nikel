@@ -49,7 +49,6 @@ function checkLogged () {
     if(!logged) {
         window.location.href = "index.html";
         return;
-
     }
 
     const dataUser = localStorage.getItem(logged);
