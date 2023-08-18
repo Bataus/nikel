@@ -3,7 +3,7 @@
 }
 
 #app {
-    background: linear-gradient(120deg, #ffffff 44.9%, #4c79d3 45%) no-repeat fixed;  
+    background: linear-gradient(120deg, #ffffff 44.9%, #4c79d3 55%) no-repeat fixed;  
 }
 
 header {
@@ -27,6 +27,28 @@ header {
 .coins {
     position: absolute;
     bottom: 100px;
+    left: 630px;
+}
+
+.coinss {
+    position: absolute;
+    top: 230px;
+    bottom: 100px;
+    left: 380px;
+}
+
+.coins2 {
+    position: absolute;
+    top: 530px;
+    bottom: 100px;
+    left: 1100px;
+}
+
+.coins3 {
+    position: absolute;
+    top: 570px;
+    bottom: 100px;
+    left: 1117px;
 }
 
 .text-login {
